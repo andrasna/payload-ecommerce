@@ -1,31 +1,36 @@
 version: '3'
 
 services:
-  payload:
-    image: node:18-alpine
+  postgres:
+    container_name: postgres
+    image: postgres:latest
     ports:
-      - '3000:3000'
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: webshop
+      POSTGRES_USER: user123
+      POSTGRES_PASSWORD: password123
     volumes:
-      - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
-    command: sh -c "yarn install && yarn dev"
-    depends_on:
-      - mongo
-    env_file:
-      - .env
+      - pgdata:/var/lib/postgresql/data
+    stdin_open: true
+    tty: true
+    networks:
+      - postgres
 
-  mongo:
-    image: mongo:latest
+  adminer:
+    container_name: adminer
+    image: adminer
     ports:
-      - '27017:27017'
-    command:
-      - --storageEngine=wiredTiger
-    volumes:
-      - data:/data/db
-    logging:
-      driver: none
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
 
 volumes:
+  pgdata:
   data:
-  node_modules:
