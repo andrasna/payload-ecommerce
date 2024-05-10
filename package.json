@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.0",
+    "@payloadcms/db-postgres": "^0.x",
     "@payloadcms/plugin-cloud": "^3.0.0",
     "@payloadcms/plugin-nested-docs": "^1.0.8",
     "@payloadcms/plugin-redirects": "^1.0.0",
@@ -34,17 +35,17 @@
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "escape-html": "^1.0.3",
+    "eslint-config-next": "^14.2.3",
     "express": "^4.19.2",
-    "next": "13.5.2",
+    "next": "^14.2.3",
     "payload": "^2.0.0",
     "payload-admin-bar": "^1.0.6",
     "qs": "6.11.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-hook-form": "7.45.4",
     "react-router-dom": "5.3.4",
-    "stripe": "^10.2.0",
-    "@payloadcms/db-postgres": "^0.x"
+    "stripe": "^10.2.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.6",
